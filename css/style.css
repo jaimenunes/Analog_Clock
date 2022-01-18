@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+/* CLOCK BODY ====================================== */
+.clock {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+}
+.clock.white{
+    background-color: #fff;
+    border: rgba(202, 202, 202, 0.58) solid 20px;
+}
+.clock.black{
+    background-color:rgba(78, 73, 73, 0.58);
+    border: rgba(202, 202, 202, 0.58) solid 20px;
+}
+
+.clock.black .number{
+    color: #fff;
+}
+
+.clock .number{
+    --rotation: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 1.5rem;
+    text-align: center;
+    transform: rotate(var(--rotation));
+}
+
+.clock .number1{
+    --rotation: 30deg;
+}
+.clock .number2{
+    --rotation: 60deg;
+}
+.clock .number3{
+    --rotation: 90deg;
+}
+.clock .number4{
+    --rotation: 120deg;
+}
+.clock .number5{
+    --rotation: 150deg;
+}
+.clock .number6{
+    --rotation: 180deg;
+}
+.clock .number7{
+    --rotation: 210deg;
+}
+.clock .number8{
+    --rotation: 240deg;
+}
+.clock .number9{
+    --rotation: 270deg;
+}
+.clock .number10{
+    --rotation: 300deg;
+}
+.clock .number11{
+    --rotation: 330deg;
+}
+
+/* Clocko pointer time ========================================= */
+.clock .time{
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    z-index: 12;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.clock.black::after{
+    background-color: #fff;
+}
+
+.clock .time.hours{
+    width: 10px;
+    height: 50%;
+    background-color: #000;
+}
+
+.clock.black .time.hours{
+    background-color: #fff;
+}
+
+.clock .time.minutes{
+    width: 7px;
+    height: 40%;
+    background-color: #000;
+}
+
+.clock.black .time.minutes{
+
+    background-color: #fff;
+}
+
+.clock .time.seconds{
+    width: 3px;
+    height: 30%;
+    background-color: rgb(190, 2, 2);
+}
+
+/* Icon -========================================================= */
+i{
+    float: right;
+    cursor: pointer;
+    color: rgba(83, 79, 79, 0.95);
+}
+
+i:hover{
+    transform: scale(1.2);
+    color: rgb(223, 230, 129);
+}
+
+i#dark{
+    color: rgb(223, 230, 129);;
+}
+
+i#dark:hover{
+    color: rgba(83, 79, 79, 0.95);
+}
+
+i.desactive{
+    display: none;
+}
+
+i.active{
+    display: inline;
+}
+
+@media (max-width: 466px){
+    .clock{
+        width: 300px;
+        height: 300px;
+    }
+}
